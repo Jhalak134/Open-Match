@@ -5,16 +5,11 @@ import ProjectListingPage from './pages/ProjectListingPage'
 import LoginPage from './pages/LoginPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import PostProjectPage from './pages/PostProjectPage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import ResetPasswordPage from './pages/ResetPasswordPage'
+
 function LandingPage() {
   return <div>Landing Page — Coming Soon</div>
-}
-
-function ForgotPasswordPage() {
-  return <div>Forgot Password — Coming Soon</div>
-}
-
-function ResetPasswordPage() {
-  return <div>Reset Password — Coming Soon</div>
 }
 
 function NotFoundPage() {
