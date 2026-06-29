@@ -3,7 +3,8 @@ import DashboardLayout from './components/layout/DashboardLayout'
 import DashboardPage from './pages/DashboardPage'
 import ProjectListingPage from './pages/ProjectListingPage'
 import LoginPage from './pages/LoginPage'
-
+import ProjectDetailPage from './pages/ProjectDetailPage'
+import PostProjectPage from './pages/PostProjectPage'
 function LandingPage() {
   return <div>Landing Page — Coming Soon</div>
 }
@@ -32,6 +33,8 @@ export default function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/projects" element={<ProjectListingPage />} />
+          <Route path="/projects/:id" element={<ProjectDetailPage />} />
+          <Route path="/projects/new" element={<PostProjectPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/dashboard" />} />
