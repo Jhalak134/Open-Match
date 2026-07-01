@@ -9,6 +9,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
 import LandingPage from './pages/LandingPage'
 import OnboardingPage from './pages/OnboardingPage'
+import ContributorProfilePage from './pages/ContributorProfilePage'
 
 function NotFoundPage() {
   return <div>404 — Page Not Found</div>
@@ -25,6 +26,9 @@ export default function App() {
 
         {/* Onboarding — full screen, no sidebar */}
         <Route path="/onboarding" element={<OnboardingPage />} />
+
+        {/* Contributor public profile — no sidebar */}
+        <Route path="/contributors/:id" element={<ContributorProfilePage />} />
 
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
