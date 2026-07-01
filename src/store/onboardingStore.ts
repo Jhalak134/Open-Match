@@ -55,9 +55,9 @@ export interface OnboardingData {
   contributionTypes: string[]  // what kind of contributions they make
   availability: string         // hours per week available
 
-  // Step 6 (we'll fill these in later)
-  wantsMentor: boolean
-  goals: string
+  // Step 6
+  wantsMentor: boolean   // newcomer: wants a mentor matched
+  goals: string          // contributor/maintainer: 3-month goals
 }
 
 // The fields Step 2 collects — a subset of OnboardingData
@@ -85,6 +85,12 @@ export interface PreferencesPayload {
   availability: string
 }
 
+// The fields Step 6 saves
+export interface FinalStepPayload {
+  wantsMentor: boolean
+  goals: string
+}
+
 // The shape of the store itself — data + actions (functions)
 interface OnboardingStore {
   currentStep: number
@@ -95,6 +101,7 @@ interface OnboardingStore {
   setGitHubData: (payload: GitHubDataPayload) => void        // Step 3
   setSkills: (skills: SkillEntry[]) => void                       // Step 4
   setPreferences: (payload: PreferencesPayload) => void            // Step 5
+  setFinalStep: (payload: FinalStepPayload) => void                 // Step 6
   nextStep: () => void
   prevStep: () => void
   setStep: (step: number) => void
@@ -164,6 +171,12 @@ export const useOnboardingStore = create<OnboardingStore>((set) => ({
 
   // Save preferences from Step 5 (contributor / maintainer path)
   setPreferences: (payload) =>
+    set((state) => ({
+      data: { ...state.data, ...payload },
+    })),
+
+  // Save mentor choice / goals from Step 6
+  setFinalStep: (payload) =>
     set((state) => ({
       data: { ...state.data, ...payload },
     })),

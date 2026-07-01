@@ -23,6 +23,7 @@ import StepProfileBasics from '../components/onboarding/StepProfileBasics'
 import StepGitHubImport from '../components/onboarding/StepGitHubImport'
 import StepSkillAssessment from '../components/onboarding/StepSkillAssessment'
 import StepSkillGap from '../components/onboarding/StepSkillGap'
+import StepMentor from '../components/onboarding/StepMentor'
 
 // ---- Step labels ------------------------------------------
 //
@@ -64,13 +65,10 @@ export default function OnboardingPage() {
         return <StepSkillAssessment />
       case 5:
         return <StepSkillGap />
+      case 6:
+        return <StepMentor />
       default:
-        // Placeholder for steps 2-6 (we'll build these one by one)
-        return (
-          <div style={{ color: 'var(--text-secondary)', textAlign: 'center', padding: '2rem' }}>
-            Step {currentStep} — coming soon!
-          </div>
-        )
+        return null
     }
   }
 
