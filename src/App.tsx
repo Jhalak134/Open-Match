@@ -10,6 +10,8 @@ import ResetPasswordPage from './pages/ResetPasswordPage'
 import LandingPage from './pages/LandingPage'
 import OnboardingPage from './pages/OnboardingPage'
 import ContributorProfilePage from './pages/ContributorProfilePage'
+import EditProfilePage from './pages/EditProfilePage'
+import SettingsPage from './pages/SettingsPage'
 
 function NotFoundPage() {
   return <div>404 — Page Not Found</div>
@@ -30,11 +32,15 @@ export default function App() {
         {/* Contributor public profile — no sidebar */}
         <Route path="/contributors/:id" element={<ContributorProfilePage />} />
 
+        {/* Edit own profile — standalone, no sidebar */}
+        <Route path="/profile/edit" element={<EditProfilePage />} />
+
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/projects" element={<ProjectListingPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
           <Route path="/projects/new" element={<PostProjectPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/dashboard" />} />
